@@ -1,15 +1,14 @@
 {
-  "scripts": {
-    "build": "yarn install && npm install && npm run build",
-    "build:ffmpeg": "wget https://ffmpeg.org/releases/ffmpeg-5.0.3.tar.gz && tar -xzvf ffmpeg-5.0.3.tar.gz && cd ffmpeg-5.0.3 && ./configure && make && cp ffmpeg ../"
-  },
-  "routes": [
-    { "src": "/(.*)", "dest": "/" }
-  ],
   "builds": [
     {
       "src": "./index.js",
       "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
     }
   ]
 }
