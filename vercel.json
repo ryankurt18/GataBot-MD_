@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "api": {
+      "runtime": "nodejs14.x",
+      "environment": {
+        "FFMPEG_BINARY": "./ffmpeg"  // Ruta relativa al binario ffmpeg en tu proyecto
+      }
+    }
+  },
+  "builds": [
+    {      
+      "src": "/index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.js"
+    }
+  ]
+}
