@@ -3,7 +3,7 @@
     "api": {
       "runtime": "nodejs14.x",
       "environment": {
-        "FFMPEG_BINARY": "./ffmpeg"  // Ruta relativa al binario ffmpeg en tu proyecto
+        "FFMPEG_BINARY": "./ffmpeg"
       }
     }
   },
