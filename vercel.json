@@ -1,14 +1,15 @@
 {
-  "version": 2,
-  "functions": {
-    "./*.js": {
-      "runtime": "@vercel/node",
-      "includeFiles": "node_modules/@ffmpeg-installer/linux-x64/**",
-      "build": {
-        "env": {
-          "FFMPEG_PATH": "/var/task/node_modules/@ffmpeg-installer/linux-x64/ffmpeg"
-        }
-      }
+  "scripts": {
+    "build": "yarn install && npm install && npm run build",
+    "build:ffmpeg": "wget https://ffmpeg.org/releases/ffmpeg-5.0.3.tar.gz && tar -xzvf ffmpeg-5.0.3.tar.gz && cd ffmpeg-5.0.3 && ./configure && make && cp ffmpeg ../"
+  },
+  "routes": [
+    { "src": "/(.*)", "dest": "/" }
+  ],
+  "builds": [
+    {
+      "src": "./index.js",
+      "use": "@vercel/node"
     }
-  }
+  ]
 }
