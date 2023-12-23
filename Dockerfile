@@ -2,14 +2,15 @@ FROM node:20.10.0-alpine3.18
 
 RUN apk update && \
   apk add --no-cache \
+  git \
   ffmpeg \
   imagemagick \
-  webp && \
+  libwebp-tools && \
   rm -rf /var/cache/apk/*
 
 COPY package*.json .
 
-RUN npm install && npm install qrcode-terminal
+RUN npm install
 
 COPY . .
 
