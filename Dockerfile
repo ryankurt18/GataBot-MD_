@@ -1,14 +1,13 @@
-FROM node:lts-buster
+FROM node:20.10.0-alpine3.18
 
-RUN apt-get update && \
-  apt-get install -y \
+RUN apk update && \
+  apk add --no-cache \
   ffmpeg \
   imagemagick \
   webp && \
-  apt-get upgrade -y && \
-  rm -rf /var/lib/apt/lists/*
+  rm -rf /var/cache/apk/*
 
-COPY package.json .
+COPY package*.json .
 
 RUN npm install && npm install qrcode-terminal
 
