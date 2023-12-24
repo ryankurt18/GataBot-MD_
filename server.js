@@ -46,8 +46,7 @@ function keepAlive() {
     //console.log(`keepAlive() url ->`, url);
     console.log(`keepAlive() a LocalHost 3000`);
     console.log("=======================================");
-    //fetch("http://localhost:3000").catch(console.error);
-    const res = await fetch("http://localhost:3000");
+    const res = await fetch("https://gatabot-cvt2.onrender.com");
     if (res.status === 200) {
       const result = await res.text();
       console.log(`Resultado desde LocalHost 3000`, result);
